@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #a8cd9f;
+  /* background-size: cover; */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+}
+
+.Container {
+  width: 100%;
+  height: calc(100% - 5.8vh);
+  /* background-color: red; */
+}
+
+/********form-stylesheet*******/
+.form-wrap {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 400px;
+  height: 550px;
+  padding: 80px 40px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.form-wrap p {
+  font-weight: bold;
+  color: white;
+}
+
+.form-wrap input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-wrap input[type="text"],
+.form-wrap input[type="password"] {
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+  border-bottom: 1px solid white;
+}
+
+.form-wrap input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  font-size: 16px;
+  background: rgb(0, 187, 234);
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.form-wrap input[type="submit"]:hover {
+  background: rgba(57, 255, 22, 0.5);
+}
+
+.form-wrap a {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form-wrap a:last-child {
+  border: 1px solid white;
+  padding: 10px 20px;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+}
+
+.form-wrap a:last-child:hover {
+  background: rgba(196, 196, 196, 0.5);
+}
+
+::placeholder {
+  color: rgba(250, 250, 250, 0.5);
+}
+
+button {
+  width: 315px;
+  height: 7vh;
+  background-color: lime;
+  border: 1px solid white;
+  border-radius: 2.5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: aqua;
+}
+
+.link {
+  /* background-color: wheat; */
+  /* background: rgba(196, 196, 196, 0.5); */
+  color: blue;
+}

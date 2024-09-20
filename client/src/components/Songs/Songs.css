@@ -1,0 +1,138 @@
+.songs-contianer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.second-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.songs-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.songs {
+  width: 34vw;
+  padding: 3px;
+  background-color: #b784b7;
+  border-radius: 4px;
+}
+
+.playlists-dropdown {
+  width: 60%;
+  height: 4vh;
+  margin: 2px;
+  padding: 1px;
+  /* color: white; */
+  /* background-color: skyblue; */
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.playlist-container-icons {
+  margin-right: 5px;
+  margin-bottom: 2px;
+  padding: 2px 15px 2px 15px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.playlist-container-icons:hover {
+  border-radius: 3px;
+  background-color: red;
+}
+
+.delete-playlist-container-icons {
+  margin-right: 10px;
+  margin-bottom: 2px;
+  padding: 2px 15px 2px 15px;
+  cursor: pointer;
+  z-index: 100;
+}
+.delete-playlist-container-icons:hover {
+  border-radius: 3px;
+  background-color: black;
+}
+
+.songs ol {
+  height: 65vh;
+  margin-left: 2px;
+  /* background-color: red; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.songs li {
+  border: 1px solid black;
+  background-color: skyblue;
+  height: 3.5vh;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+  text-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: hidden;
+  opacity: 0.75;
+  cursor: pointer;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 3px;
+  padding-left: 1%;
+}
+
+.songs li:hover {
+  background-color: greenyellow;
+  opacity: 1;
+  font-weight: bold;
+}
+
+li:hover .add-round-icon {
+  background-color: greenyellow;
+}
+
+.add-round-icon {
+  background-color: white;
+}
+.add-round-icon .active {
+  background-color: red;
+}
+
+.songs .active {
+  color: blue;
+  position: relative;
+  background-color: white;
+  font-weight: bolder;
+  opacity: 1;
+  /* border: 2px solid black; */
+}
+
+.active .song-names {
+  position: relative;
+  display: inline-block;
+  animation: slide 12s linear infinite;
+}
+
+.list-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes slide {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}

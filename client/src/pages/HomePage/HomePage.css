@@ -1,0 +1,12 @@
+.mainPage {
+  width: 100%;
+  height: 77vh;
+  display: flex;
+  /* background-color: red; */
+}
+.bottom-details-container {
+  width: 99%;
+  margin-top: 1vh;
+  margin-left: 0.5vw;
+  background-color: darkgray;
+}

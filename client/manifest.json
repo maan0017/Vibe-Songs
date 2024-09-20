@@ -1,0 +1,13 @@
+{
+  "short_name": "vibeSongs",
+  "name": "Vibe Songs || Offiline Music Player",
+  "icons": [
+    {
+      "src": "./src/assets/icons/videoPlayer.png",
+      "sizes": "64x64 512x512 192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}

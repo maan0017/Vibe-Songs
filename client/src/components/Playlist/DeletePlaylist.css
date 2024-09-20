@@ -1,0 +1,10 @@
+.deletePlaylist-btn {
+  width: 25vw;
+  font-size: 25px;
+  margin-left: 1vw;
+  background-color: red;
+}
+
+.deletePlaylist-btn:hover {
+  background-color: black;
+}

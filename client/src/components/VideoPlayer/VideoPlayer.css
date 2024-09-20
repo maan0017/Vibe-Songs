@@ -1,0 +1,300 @@
+.video-container {
+  margin-top: 0.2vh;
+  width: 90%;
+  height: 77vh;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  position: relative;
+  background-color: black;
+  border: 5px solid black;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.video-container.theater,
+.video-container:full-screen {
+  max-width: initial;
+  width: 100%;
+}
+
+.video-container.theater {
+  max-height: 90vh;
+}
+
+/* .video-container.full-screen {
+  max-height: 100vh;
+} */
+
+video {
+  width: 100%;
+}
+video:fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.video-controls-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+.video-controls-container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  width: 100%;
+  aspect-ratio: 6/1;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.video-container:hover .video-controls-container,
+.video-container:focus-within .video-controls-container,
+.video-container.paused .video-controls-container {
+  opacity: 1;
+}
+
+.video-controls-container .controls {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  align-items: center;
+}
+
+.video-controls-container .controls .buttonImg {
+  position: relative;
+  background: none;
+  border: none;
+  color: inherit;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  height: 25px;
+  width: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 150ms ease-in-out;
+}
+
+.video-controls-container .controls .buttonImg:hover {
+  opacity: 1;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+}
+
+.volume-slider {
+  width: 0;
+  transform-origin: left;
+  transform: scale(0);
+  transition:
+    width 150ms ease-in-out,
+    transform 150ms ease-in-out;
+}
+
+.volume-container:hover .volume-slider,
+.volume-slider:focus-within {
+  width: 100px;
+  transform: scale(1);
+}
+
+.duration-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.video-controls-container .controls .speed-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.video-controls-container .controls .wide {
+  width: 45px;
+}
+
+.timeline-container {
+  height: 5px;
+  margin-inline: 0.5rem;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  background-color: rgba(100, 100, 100, 0.5);
+  /* background-color: rgba(49, 49, 49, 0.5); */
+}
+
+.timeline-container:hover {
+  background-color: white;
+}
+
+.timeline-container .timeline {
+  height: 5px;
+  background-color: red;
+  /* background-color: rgba(100, 100, 100, 0.5); */
+  width: 100%;
+  position: relative;
+}
+
+.timeline {
+  border-radius: 1.5px;
+}
+
+.timeline-container:hover .timeline {
+  height: 100%;
+}
+.thumb-indicator:hover {
+  transform: scale(1.2);
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  /* right: calc(100% - var(--preview-position) * 100%); */
+  background-color: rgb(150, 150, 150);
+  display: none;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  /* right: calc(100% - var(--progress-position) * 100%); */
+  background-color: red;
+  display: block;
+}
+
+.thumb-indicator {
+  /* --scale: 0; */
+  position: absolute;
+  transform: translateX(-50%);
+  height: 200%;
+  top: -50%;
+  /* left: calc(var(--progress-position) * 100%); */
+  background-color: red;
+  border-radius: 50%;
+  transition: transform 150ms ease-in-out;
+  aspect-ratio: 1/1;
+}
+
+.video-container.scrubbig .timeline::before,
+.timeline-container:hover .timeline::before {
+  display: block;
+}
+
+.video-container.scrubbing .timeline::after,
+.timeline-container:hover .thumb-indicator {
+  --scale: 1;
+}
+
+.video-container.scrubbing .timeline::after,
+.timeline-container:hover .timeline {
+  height: 100%;
+}
+
+.video-container video:fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.video-container video:-webkit-full-screen {
+  /* Safari */
+  width: 100%;
+  height: 100%;
+}
+
+.video-container video:-moz-full-screen {
+  /* Firefox */
+  width: 100%;
+  height: 100%;
+}
+
+/***************** mini player functionality *****************/
+/* Mini-player styles */
+.mini-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 35vw;
+  height: 42vh; /* Aspect ratio 16:9 */
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition:
+    width 0.3s ease,
+    height 0.3s ease;
+}
+.mini-player video {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/***************** cinema mode functionality *****************/
+/* Wrapper for centering video */
+.video-wrapper {
+  position: relative;
+  z-index: 2;
+}
+/* Cinema mode background overlay */
+.cinema-overlay {
+  position: absolute;
+  top: -0.9vh;
+  left: -18vw;
+  width: 99.7vw;
+  height: 78vh;
+  background-color: black; /* Dark background */
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.video-container .cinema-mode,
+.cinema-mode video {
+  width: 100%;
+  z-index: 2;
+}
+.cinema-mode .cinema-overlay {
+  opacity: 1;
+}
+/* Video in cinema mode */
+.cinema-mode .video-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  max-width: 80%;
+  width: 80%;
+  height: auto;
+}
+/* to make responsive on smaller screens like mobiles */
+@media (max-width: 768px) {
+  .cinema-mode .video-wrapper {
+    max-width: 90%;
+    width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  .cinema-mode .video-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+}
